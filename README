@@ -1,3 +1,10 @@
+Simple install for ruby version:
+
+sudo apt-get install libdbus-ruby
+cp xmms2-gnome-mediakeys-listener.rb ~/.config/xmms2/startup.d/
+xmms2 quit; xmms2 play
+
+
 This is the same thing implemented in ruby and in C 
 
 It lets you use the prev / play-pause / next keys on your keyboard with xmms2
