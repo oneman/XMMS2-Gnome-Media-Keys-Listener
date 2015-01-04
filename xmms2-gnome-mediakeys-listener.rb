@@ -36,6 +36,10 @@ daemon.on_signal("MediaPlayerKeyPressed") do |app,key|
           `nyxmms2 prev`
         when "Play"
           `nyxmms2 toggle`
+        when "Stop"
+          `nyxmms2 stop`
+        when "Pause"
+          `nyxmms2 pause`
         end
     end
 end
