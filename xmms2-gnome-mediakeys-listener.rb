@@ -22,15 +22,21 @@ daemon.default_iface = "org.gnome.SettingsDaemon.MediaKeys"
 #puts service.introspect
 #puts daemon.introspect
 
-daemon.on_signal("MediaPlayerKeyPressed") do |x,y|
-    #puts "Recived: #{x} #{y}"
-    case y
-    when "Next"
-     `nyxmms2 next`
-    when "Previous"
-     `nyxmms2 prev`
-    when "Play"
-      `nyxmms2 toggle`
+APPNAME = "Xmms2 listener"
+
+daemon.GrabMediaPlayerKeys(APPNAME,0)
+
+daemon.on_signal("MediaPlayerKeyPressed") do |app,key|
+    # puts "Recived: #{app} #{key}"
+    if app = APPNAME then
+        case key
+        when "Next"
+          `nyxmms2 next`
+        when "Previous"
+          `nyxmms2 prev`
+        when "Play"
+          `nyxmms2 toggle`
+        end
     end
 end
 
